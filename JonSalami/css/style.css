@@ -1,0 +1,657 @@
+:root {
+  --bg-primary: #153448;
+  --bg-card: #3C5B6F;
+  --accent-cream: #DFD0B8;
+  --action-brown: #948979;
+  --action-red: #944e4e;
+  --focus-orange: #e67e22;
+  --header-table: #40161d;
+}
+
+
+/* ==========================================================
+   ESTILOS BASE Y CONTENEDOR MÓVIL
+   ========================================================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #153448;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 380px; 
+    min-height: 680px; 
+    background-color: #153448;
+    border-radius: 20px; 
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin: 0 auto;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* ==========================================================
+   NAVEGACIÓN SUPERIOR (BOTÓN VOLVER)
+   ========================================================== */
+.back-nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    margin-bottom: 5px !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #DFD0B8;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: opacity 0.2s;
+}
+
+.back-link span { 
+    font-size: 30px; 
+    margin-right: 5px; 
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+.back-link:active { opacity: 0.4; }
+
+/* ==========================================================
+   PANTALLA DE INICIO (HOME)
+   ========================================================== */
+#home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    min-height: 550px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    margin-top: 80px !important;
+}
+
+#home h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 50px 0 !important;
+    color: #eddec5;
+}
+
+.image-button-link {
+    display: block;
+    width: 80%;
+    max-width: 250px;
+    margin: 0 auto 10px auto;
+    line-height: 0;
+}
+
+.home-button-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.4));
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.home-button-img:active {
+    transform: scale(0.97);
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.6));
+}
+
+/* ==========================================================
+   OTROS ESTILOS (TÍTULOS, FORMULARIOS)
+   ========================================================== */
+h2, h3, h4 {
+    width: 100%;
+    color: #f6e8d2;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.section h2 {
+    margin-top: 0 !important;
+    padding-top: 5px !important;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group, #recipe-name-input { width: 100%; box-sizing: border-box; }
+
+.large-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.main-logo {
+    width: 65%;
+    max-width: 220px;
+    height: auto;
+    margin: 15px auto 25px auto;
+    display: block;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* ==========================================================
+   LISTA DE RECETAS (TARJETAS Y BOTONES)
+   ========================================================== */
+#recipes-container {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.recipe-card {
+    background-color: #3C5B6F;
+    border: 1px solid #201E43;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 0 auto 10px auto;
+    width: 98%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.recipe-card:active {
+    transform: scale(0.96);
+    background-color: #5a1e28;
+}
+
+.recipe-card h4 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.recipe-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn, .delete-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: transform 0.1s, background-color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.edit-btn { background-color: #948979; color: white !important; text-decoration: none; }
+.delete-btn { background-color: #944e4e; color: white; width: auto; height: auto; }
+.edit-btn:active, .delete-btn:active { transform: scale(0.92); }
+
+/* ==========================================================
+   FORMULARIO DE EDICIÓN (INGREDIENTES)
+   ========================================================== */
+.ingredient-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #3C5B6F;
+    border: 1px solid #201E43; 
+    border-radius: 8px;
+}
+
+.ingredient-row input[type="text"] {
+    flex-grow: 1;
+    background: #153448;
+    border: 1px solid #201E43;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.ingredient-row input[type="number"] {
+    width: 60px;
+    text-align: right;
+    background: #153448;
+    color: white;
+    border: 1px solid #201E43;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.ingredient-row span { color: #bdc3c7; font-weight: bold; width: 20px; }
+
+.add-ingredient-btn, .remove-ingredient-btn, button[onclick*="addIngredient"] {
+    background-color: #3C5B6F;
+    color: #DFD0B8;
+    border: 1px solid #201E43;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 10px 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.remove-btn, .delete-ingredient-btn {
+    background-color: #944e4e;
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* ==========================================================
+   VISTA DE CÁLCULO (EL "MEAT WEIGHT" CON BORDE NARANJA)
+   ========================================================== */
+.batch-input-container {
+    background-color: rgba(0, 0, 0, 0.2); 
+    padding: 12px 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 15px 0;
+}
+
+.batch-input-container label {
+    color: #8a9ba8; 
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.batch-input-container input {
+    background-color: #3C5B6F; 
+    border: 1px solid #201E43; 
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ==========================================================
+   TABLA PRO DE RESULTADOS
+   ========================================================== */
+#batch-calculator {
+    width: 100% !important;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#batch-calculator h3 {
+    color: #DFD0B8;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3C5B6F;
+    padding-bottom: 10px;
+}
+
+#batch-calculator table {
+    width: 100% !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #803D3B;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+#batch-calculator th {
+    background-color: #6D2932 !important;
+    color: #DFD0B8 !important;
+    padding: 12px 10px;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border: none;
+}
+
+#batch-calculator td {
+    padding: 14px 10px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+#batch-calculator tr:last-child {
+    background-color: rgba(223, 208, 184, 0.1);
+}
+
+#batch-calculator tr:last-child td {
+    border-bottom: none;
+    font-weight: bold;
+    color: #DFD0B8;
+}
+
+/* Alineación de columnas numéricas */
+#batch-calculator td:nth-child(2),
+#batch-calculator td:nth-child(3),
+#batch-calculator th:nth-child(2),
+#batch-calculator th:nth-child(3) {
+    text-align: right;
+}
+
+/* ==========================================================
+   UTILIDADES Y BOTONES FINALES
+   ========================================================== */
+.primary-button {
+    background-color: #948979;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.primary-button:hover { background-color: #C4A484 }
+
+.hidden { display: none !important; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================
+   FIX DEFINITIVO PARA IPHONE (IPHONE 12 & SIMILARES)
+   ========================================================== */
+
+/* 1. Forzar tamaño de fuente para evitar el zoom del sistema */
+input[type="number"], 
+input[type="text"], 
+.batch-input-container input {
+    font-size: 16px !important;
+    height: 40px !important; /* Altura cómoda para dedos */
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Ajustar el contenedor para que no se desborde con el nuevo tamaño */
+.batch-input-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 15px !important;
+    gap: 10px !important;
+    width: 100% !important;
+}
+
+/* 3. Evitar que el label (texto) empuje al input hacia afuera */
+.batch-input-container label {
+    flex: 1 !important; /* Toma el espacio sobrante */
+    font-size: 0.85rem !important;
+    white-space: nowrap !important; /* Evita que el texto salte de línea */
+}
+
+/* 4. Definir un ancho fijo para el input que quepa en 390px (iPhone 12) */
+.batch-input-container input {
+    width: 85px !important; 
+    flex-shrink: 0 !important; /* Impide que se haga pequeño */
+}
+
+/* 5. Corrección para las filas del editor (donde hay varios inputs) */
+.ingredient-row {
+    display: flex !important;
+    flex-wrap: nowrap !important; 
+    gap: 5px !important;
+}
+
+.ingredient-row input[type="text"] {
+    flex: 2 !important;
+    min-width: 0 !important; /* Permite que el input de texto se encoja si es necesario */
+}
+
+.ingredient-row input[type="number"] {
+    width: 65px !important;
+    flex: 0 0 65px !important;
+}
+
+
+/* ==========================================================
+   DISEÑO ADAPTATIVO FLUIDO (ANTI-ZOOM iOS)
+   ========================================================== */
+
+/* 1. Asegurar que el contenedor nunca desborde el ancho de pantalla */
+.container {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 20px 4% !important; /* Padding en porcentaje para adaptarse al ancho */
+    box-sizing: border-box !important;
+}
+
+/* 2. Input de Peso Adaptativo */
+.batch-input-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    gap: 10px;
+}
+
+.batch-input-container input {
+    font-size: 16px !important; /* Mínimo para evitar zoom en iPhone */
+    width: 25% !important;      /* Se adapta al ancho disponible */
+    min-width: 80px !important;  /* Pero no se encoge de más */
+    max-width: 120px !important;
+    height: 40px;
+    text-align: center;
+}
+
+/* 3. Tabla Fluida (Baker's Percentages) */
+#batch-calculator table {
+    width: 100% !important;
+    margin-top: 15px;
+    border-collapse: collapse;
+    table-layout: auto; /* Permite que las columnas se ajusten al contenido */
+}
+
+#batch-calculator th, 
+#batch-calculator td {
+    padding: 12px 8px !important;
+    font-size: 0.9rem !important; /* Tamaño legible y adaptativo */
+}
+
+/* Alineación consistente */
+#batch-calculator td:nth-child(2), 
+#batch-calculator td:nth-child(3) {
+    text-align: right;
+    white-space: nowrap; /* Evita que los gramos se partan en dos líneas */
+}
+
+/* 4. Ajuste para los nombres de ingredientes largos */
+#batch-calculator td:first-child {
+    word-break: break-word; /* Si el nombre es muy largo, salta de línea sin estirar la tabla */
+    max-width: 150px;
+}
+
+/* ==========================================================
+   ADAPTACIÓN PARA IPAD Y TABLETAS
+   ========================================================== */
+/* ==========================================================
+   ADAPTACIÓN FLUIDA PARA IPAD (FULL SCREEN)
+   ========================================================== */
+/* ==========================================================
+   ADAPTACIÓN FLUIDA PARA IPAD (FULL SCREEN)
+   ========================================================== */
+@media (min-width: 768px) {
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        padding: 40px 5% !important;
+        border-radius: 0 !important;
+        align-items: center !important;
+    }
+
+    /* Forzamos a que las secciones ocupen el ancho real del iPad */
+    #home, #formula-editor, #recipe-list, #batch-calculator, #formula-form {
+        max-width: 95% !important; 
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    /* Expandir el input del nombre de la receta al máximo */
+    #recipe-name-input {
+        width: 100% !important;
+        font-size: 24px !important;
+        height: 60px !important;
+        margin-bottom: 30px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Hacer que las filas de ingredientes ocupen todo el ancho horizontal */
+    .ingredient-row {
+        width: 100% !important;
+        padding: 20px 30px !important;
+        gap: 25px !important;
+        margin-bottom: 15px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+    }
+
+    /* El input de texto del ingrediente debe crecer para llenar el espacio */
+    .ingredient-row input[type="text"] {
+        flex-grow: 1 !important; /* Esto lo hace ancho hacia los lados */
+        font-size: 1.2rem !important;
+        height: 45px !important;
+    }
+
+    .ingredient-row input[type="number"] {
+        width: 100px !important;
+        font-size: 1.2rem !important;
+        height: 45px !important;
+    }
+
+    /* Botones y Tablas */
+    .add-ingredient-btn, .large-button {
+        width: 100% !important;
+        max-width: 500px; /* Centrados pero con buen tamaño */
+        margin: 20px auto !important;
+        padding: 20px !important;
+        font-size: 20px !important;
+    }
+
+    #batch-calculator table {
+        width: 100% !important;
+        font-size: 1.2rem !important;
+    }
+
+    #batch-calculator th, 
+    #batch-calculator td {
+        padding: 20px !important;
+    }
+
+    .batch-input-container {
+        max-width: 100% !important; /* También ancho en iPad */
+        padding: 25px !important;
+    }
+}
+
+/* ==========================================================
+   AJUSTE DE ALINEACIÓN FINAL (SOLO LO NECESARIO)
+   ========================================================== */
+
+/* 1. Forzamos a que el contenedor siempre empiece arriba del todo */
+body {
+    align-items: flex-start !important;
+}
+
+.container {
+    justify-content: flex-start !important;
+    padding-top: 15px !important; /* Espacio constante al techo */
+    min-height: 100vh !important;
+    position: relative;
+}
+
+/* 2. Bloqueamos la altura de la navegación para que sea idéntica en toda la app */
+.back-nav {
+    height: 44px !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+/* 3. Eliminamos el margen superior de los títulos que empuja la nav en la lista */
+#recipe-list h2, 
+#formula-editor h2, 
+#batch-calculator h2,
+.section h2 {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
