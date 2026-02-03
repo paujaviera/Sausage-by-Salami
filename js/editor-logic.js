@@ -2,8 +2,9 @@ const FormulaEditor = (() => {
     
     function addIngredientRow(parentId, target, defaultName = '', defaultValue = 0.5) {
         const parent = document.getElementById(parentId);
+        if (!parent) return; // Protección: si el ID no existe en el HTML, no hace nada
+
         const label = '%'; 
-        
         const newRow = document.createElement('div');
         newRow.className = 'ingredient-row';
         
@@ -34,12 +35,14 @@ const FormulaEditor = (() => {
             document.getElementById('editing-recipe-id').value = recipe.id;
             document.getElementById('edit-meat-ratio').value = recipe.meatRatio * 100;
 
-            recipe.mixBase.forEach(ing => addIngredientRow('edit-mix-base-inputs', 'total', ing.name, ing.ratio * 100));
-            recipe.flavoring.forEach(ing => addIngredientRow('edit-flavoring-inputs', 'total', ing.name, ing.ratio * 100)); 
+            // Cargamos solo Mix Base. Si la receta vieja tiene flavoring, lo ignoramos.
+            if (recipe.mixBase) {
+                recipe.mixBase.forEach(ing => addIngredientRow('edit-mix-base-inputs', 'total', ing.name, ing.ratio * 100));
+            }
         } else {
             document.getElementById('editor-title').textContent = "Add Recipe";
-            addIngredientRow('edit-mix-base-inputs', 'total', 'Your butt', 1.75);
-            addIngredientRow('edit-flavoring-inputs', 'total', 'Your hole', 0.75);
+            addIngredientRow('edit-mix-base-inputs', 'total', 'Salt', 1.75);
+            // Flavoring eliminado de aquí también
         }
     }
 
@@ -56,7 +59,10 @@ const FormulaEditor = (() => {
         
         const getIngredients = (containerId) => {
             const ingredients = [];
-            const rows = document.querySelectorAll(`#${containerId} .ingredient-row`);
+            const container = document.getElementById(containerId);
+            if (!container) return ingredients; // Si no existe el div, devuelve lista vacía
+
+            const rows = container.querySelectorAll('.ingredient-row');
             rows.forEach(row => {
                 const nameInput = row.querySelector('input[type="text"]').value;
                 const ratioInput = parseFloat(row.querySelector('input[type="number"]').value);
@@ -92,6 +98,4 @@ const FormulaEditor = (() => {
     return { setupEditor, saveRecipeFormula, addIngredientRow, removeIngredient };
 })();
 
-
 document.addEventListener('DOMContentLoaded', FormulaEditor.setupEditor);
-
