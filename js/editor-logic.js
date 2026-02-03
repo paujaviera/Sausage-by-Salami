@@ -87,10 +87,11 @@ const FormulaEditor = (() => {
         }
         
         RecipeDataModule.saveRecipes(recipes);
-        window.location.href = `index.html?status=${encodeURIComponent(`Recipe "${name}" saved!`)}`;
+        window.location.href = `../index.html?status=${encodeURIComponent(`Recipe "${name}" saved!`)}`;
     }
 
     return { setupEditor, saveRecipeFormula, addIngredientRow, removeIngredient };
 })();
+
 
 document.addEventListener('DOMContentLoaded', FormulaEditor.setupEditor);
