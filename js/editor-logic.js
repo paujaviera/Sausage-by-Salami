@@ -74,8 +74,7 @@ const FormulaEditor = (() => {
             id: id || RecipeDataModule.generateId(),
             name: name,
             meatRatio: meatRatioInput / 100,
-            mixBase: getIngredients('edit-mix-base-inputs'),
-            flavoring: getIngredients('edit-flavoring-inputs')
+            mixBase: getIngredients('edit-mix-base-inputs')
         };
 
         let recipes = RecipeDataModule.loadRecipes();
@@ -95,3 +94,4 @@ const FormulaEditor = (() => {
 
 
 document.addEventListener('DOMContentLoaded', FormulaEditor.setupEditor);
+
