@@ -126,3 +126,4 @@ const BatchCalculator = (() => {
 
 
 document.addEventListener('DOMContentLoaded', BatchCalculator.renderRecipeList);
+
