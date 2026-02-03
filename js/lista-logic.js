@@ -18,7 +18,7 @@ const BatchCalculator = (() => {
                 showSection('recipe-list');
             };
         } else {
-            backLink.href = "index.html";
+            backLink.href = "../index.html"; // Añadimos los dos puntos para salir de /html
             backLink.innerHTML = "<span>&lsaquo;</span> Menu";
             backLink.onclick = null;
         }
@@ -123,5 +123,6 @@ const BatchCalculator = (() => {
 
     return { renderRecipeList, setupBatchCalculator, calculateBatchAmounts, deleteRecipe, showSection };
 })();
+
 
 document.addEventListener('DOMContentLoaded', BatchCalculator.renderRecipeList);
