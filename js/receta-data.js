@@ -50,15 +50,7 @@ const RecipeDataModule = (() => {
             results.push({ name: ing.name, ratio: ing.ratio * 100, amount: amount });
             grandTotalAmount += amount;
         });
-
-        // 4. FLAVORING CALCULATIONS (Especias - Ahora basado en Peso Total T)
-        recipe.flavoring.forEach(ing => {
-            // Spice Amount = T * Spice Ratio
-            // CORRECCIÓN CLAVE: Usamos targetTotalWeight (T) en lugar de meatAmount (M)
-            const amount = targetTotalWeight * ing.ratio; 
-            results.push({ name: ing.name, ratio: ing.ratio * 100, amount: amount });
-            grandTotalAmount += amount;
-        });
+       
 
         return { results, grandTotalAmount };
     }
@@ -69,4 +61,5 @@ const RecipeDataModule = (() => {
         generateId,
         calculateBatchAmounts
     };
+
 })();
